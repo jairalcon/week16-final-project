@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 // import Dashboard from "./components/Dashboard";
 import LeaderBoard from "./components/LeaderBoard";
 import Quiz from "./components/Quiz";
-import Login from "./components/Login";
+import Home from "./components/Home";
 import MusicPlayer from "./components/MusicPlayer";
 import { NavBar } from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -16,7 +16,7 @@ export default function App() {
       <div className="wrapper container">
         <NavBar />
           <Routes>
-            <Route path='/' element={<Login />}/>
+            <Route path='/' element={<Home />}/>
             <Route path='/quiz' element={<Quiz />} />
             {/* <Route path='/dashboard' element={<Dashboard />}/> */}
             <Route path='/leaderboard' element={<LeaderBoard />} />          
