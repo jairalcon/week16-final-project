@@ -1,0 +1,14 @@
+//Send Request
+  get = async () => {
+    try {
+      const resp = await fetch(COMMENTS_ENDPOINT);
+      const data = await resp.json();
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log("Oh no! There was an error with getting your review.", error);
+    }
+  };
+
+react-music
+https://stackoverflow.com/questions/69870116/how-can-i-keep-song-playing-in-reactjs-even-if-i-go-to-another-pageof-same-webs
