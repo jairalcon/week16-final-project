@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { usersAPI } from '../rest/Endpoint';
 import { useNavigate } from 'react-router-dom';
 
-export default function SubmitResults({ score, setScore }) {
+export default function SubmitResults({ score, setScore, APIData}) {
     const [ username, setUserName ] = useState('');
     // const [ result, setResult ] = useState('');
     const navigate = useNavigate();
+
+    const test = APIData;
+    console.log('APIData from Quiz', test);
 
     const onSubmit = (event) => {
         event.preventDefault();

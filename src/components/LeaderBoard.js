@@ -7,9 +7,15 @@ import { useNavigate } from 'react-router-dom';
 
 export default function LeaderBoard() {
   const [APIData, setAPIData] = useState([]);
-  const [retaking, setRetaking] = useState(null);
-
+  // const [retaking, setRetaking] = useState(null);
   let navigate = useNavigate();
+
+  var lookup = {APIData};
+  for (var i = 0, len = APIData.length; i < len; i++) {
+    lookup[APIData[i].id] = APIData[i];
+  }
+  console.log(lookup[4]);
+
 
   useEffect(() => {
     console.log('inside useEffect');
@@ -36,9 +42,9 @@ export default function LeaderBoard() {
       }).then(() => {
         navigate('/quiz');
       })
-      // render component, pass in user data
-      // condition to determine if instance of quiz component exists
-      // user.id === quiz => render existing quiz
+    // render component, pass in user data
+    // condition to determine if instance of quiz component exists
+    // user.id === quiz => render existing quiz
   }
 
   const onDelete = async (id) => {
@@ -67,9 +73,13 @@ export default function LeaderBoard() {
   //   usersAPI.apiDelete(id);
   // };
 
-  const retakingQuiz = (id) => {
-    setRetaking(id);
-  }
+
+  // const result = APIData.filter(e => e.length - 1);
+  // console.log('result', result)
+
+  // const retakingQuiz = (id) => {
+  //   setRetaking(id - 1);
+  // }
 
 
   return (
@@ -93,9 +103,11 @@ export default function LeaderBoard() {
                   <td>{data.username}</td>
                   <td>{data.score}</td>
                   <td>
-                    { retaking === !data.id ? (
-                      <Button variant='warning' onClick={() => onEdit(retakingQuiz)}>Retake</Button>
-                      ) : (
+                    {/* <Button variant='warning' onClick={() => onEdit(data.id)}>Retake</Button> */}
+                    {/* <Button variant='danger' onClick={() => onDelete(data.id)}>Delete</Button> */}
+                    {APIData && data.length - 1 ? (
+                      <Button variant='warning' onClick={() => onEdit(data.id)}>Retake</Button>
+                    ) : (
                       <Button variant='danger' onClick={() => onDelete(data.id)}>Delete</Button>
                     )}
                   </td>

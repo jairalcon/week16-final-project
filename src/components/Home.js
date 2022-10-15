@@ -12,7 +12,7 @@ import alphatauri from './assets/alphatauri.jpg';
 import astonmartin from './assets/astonmartin.jpg';
 import williams from './assets/williams.jpg';
 
-export default function Login() {
+export default function Home() {
     const navigate = useNavigate();
 
     const onSubmit = (event) => {
@@ -45,7 +45,6 @@ export default function Login() {
                     </form>
                 </div>
             </div>
-
         </>
     )
 }

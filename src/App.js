@@ -1,12 +1,11 @@
 import React from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-// import Dashboard from "./components/Dashboard";
-import LeaderBoard from "./components/LeaderBoard";
-import Quiz from "./components/Quiz";
-import Home from "./components/Home";
-import MusicPlayer from "./components/MusicPlayer";
 import { NavBar } from "./components/NavBar";
+import Home from "./components/Home";
+import Quiz from "./components/Quiz";
+import LeaderBoard from "./components/LeaderBoard";
+import MusicPlayer from "./components/MusicPlayer";
 import Footer from "./components/Footer";
 // import axios from "axios";
 
