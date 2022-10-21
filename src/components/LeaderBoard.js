@@ -5,17 +5,11 @@ import { useNavigate } from 'react-router-dom';
 // import { usersAPI } from '../rest/Endpoint';
 // import { Navigate, useNavigate } from 'react-router-dom';
 
-export default function LeaderBoard() {
-  const [APIData, setAPIData] = useState([]);
+export default function LeaderBoard({ APIData, setAPIData }) {
+  // const [APIData, setAPIData] = useState([]);
+  // const [isEditing, setEdit] = useState(false);
   // const [retaking, setRetaking] = useState(null);
   let navigate = useNavigate();
-
-  var lookup = {APIData};
-  for (var i = 0, len = APIData.length; i < len; i++) {
-    lookup[APIData[i].id] = APIData[i];
-  }
-  console.log(lookup[4]);
-
 
   useEffect(() => {
     console.log('inside useEffect');
@@ -26,6 +20,12 @@ export default function LeaderBoard() {
       })
   }, [])
 
+  // let lookup = { APIData };
+  // for (var i = 0, len = APIData.length; i < len; i++) {
+  //   lookup[APIData[i].id] = APIData[i];
+  // }
+  // console.log(lookup[4]);
+
   const getData = () => {
     axios.get(`https://631cbcad1b470e0e120961c6.mockapi.io/PromineoTechApi/users`)
       .then((getData) => {
@@ -35,17 +35,18 @@ export default function LeaderBoard() {
       })
   }
 
-  const onEdit = () => {
-    axios.get(`https://631cbcad1b470e0e120961c6.mockapi.io/PromineoTechApi/users`)
-      .then((getData) => {
-        setAPIData(getData.data);
-      }).then(() => {
-        navigate('/quiz');
-      })
+  // const onEdit = () => {
+  //   axios.get(`https://631cbcad1b470e0e120961c6.mockapi.io/PromineoTechApi/users`)
+  //     .then((getData) => {
+  //       setAPIData(getData.data);
+  //     }).then(() => {
+  //       navigate('/quiz');
+  //     })
+  // }
     // render component, pass in user data
     // condition to determine if instance of quiz component exists
     // user.id === quiz => render existing quiz
-  }
+  
 
   const onDelete = async (id) => {
     console.log('in delete function');
@@ -66,6 +67,31 @@ export default function LeaderBoard() {
     getData();
   };
 
+// function to hide edit button if not last comment
+  const hideEdit = () => {
+    let user = APIData.find(item => item.id === 1)
+    // console.log(user)
+    // console.log(APIData[APIData.length - 1].id);
+    // console.log([...APIData].slice(-1))
+    if (user === APIData[APIData.length - 1].id) { //if comment id is equal to last comment id
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  // const hideEdit2 = () => {
+  //   if (comment.id === comments[comments.length - 1].id) { //if comment id is equal to last comment id
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // };
+
+  // const handleEdit = () => {
+  //   setEdit(true);
+  // }
+
   // const onDelete2 = (event) => {
   //   event.preventDefault();
   //   console.log("onSubmit event", event);
@@ -74,12 +100,6 @@ export default function LeaderBoard() {
   // };
 
 
-  // const result = APIData.filter(e => e.length - 1);
-  // console.log('result', result)
-
-  // const retakingQuiz = (id) => {
-  //   setRetaking(id - 1);
-  // }
 
 
   return (
@@ -103,13 +123,8 @@ export default function LeaderBoard() {
                   <td>{data.username}</td>
                   <td>{data.score}</td>
                   <td>
-                    {/* <Button variant='warning' onClick={() => onEdit(data.id)}>Retake</Button> */}
-                    {/* <Button variant='danger' onClick={() => onDelete(data.id)}>Delete</Button> */}
-                    {APIData && data.length - 1 ? (
-                      <Button variant='warning' onClick={() => onEdit(data.id)}>Retake</Button>
-                    ) : (
-                      <Button variant='danger' onClick={() => onDelete(data.id)}>Delete</Button>
-                    )}
+                      {hideEdit() && <Button variant='warning' >Retake</Button>}
+                      {hideEdit() && <Button variant='danger' onClick={() => onDelete(data.id)}>Delete</Button>}
                   </td>
                 </tr>
               )
