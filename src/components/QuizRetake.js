@@ -1,15 +1,14 @@
+// import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { usersAPI } from '../rest/Endpoint';
 import { questions } from './Questions';
 
-export default function QuizRetake({ APIData, setAPIData}) {
+export default function QuizRetake({ APIData, setAPIData }) {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0)
     // const [editScore, setEditScore] = useState(0)
-    const user = usersAPI.put();
-    console.log('user on QuizRetake:', user);
 
     let navigate = useNavigate();
 
@@ -33,12 +32,43 @@ export default function QuizRetake({ APIData, setAPIData}) {
         console.log('was answer correct?', isCorrect)
     };
 
+
+    // const submitRetakeScore = async (score) => {
+    //     console.log('score:', score)
+    //     try {
+    //         const resp = await fetch(`https://631cbcad1b470e0e120961c6.mockapi.io/PromineoTechApi/users/${score.id}`, {
+    //             method: "PUT",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //             body: JSON.stringify(score),
+    //         });
+    //         navigate('/scorelist');
+    //         console.log('resp:', resp)
+    //         return await resp.json();
+    //     } catch (err) {
+    //         console.log(
+    //             "Oh no! There was an error with updating your review.",
+    //             err
+    //         );
+    //     }
+    // };
+
     const submitRetakeScore = async (e) => {
         console.log('inside retake submit')
         e.preventDefault();
-        // await usersAPI.apiEdit(score);
+        await usersAPI.put(APIData.id, {score: score})
+        console.log(score);
+        setAPIData(APIData.map((item) => {
+            if(item.id === APIData.id) {
+                return {
+                    ...item, APIData: score
+                }
+            }
+            return item;
+        }))
 
-        navigate('/scorelist');
+        // navigate('/scorelist');
     };
 
     // const handleEdit = async (id) => {

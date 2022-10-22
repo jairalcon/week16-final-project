@@ -19,16 +19,14 @@ class UsersAPI {
     };
 
     //Update request
-    put = async (user) => {
+    put = async (id, score) => {
         try {
-            const resp = await fetch(`${USERS_ENDPOINT}/${user.id}`, {
+            const resp = await fetch(`${USERS_ENDPOINT}/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({
-                    score: user[1]
-                })
+                body: JSON.stringify(score)
             });
             return await resp.json();
         } catch (error) {

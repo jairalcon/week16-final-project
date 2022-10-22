@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button } from 'react-bootstrap';
-import axios from 'axios';
+// import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 // import QuizRetake from './QuizRetake';
 // import { usersAPI } from '../rest/Endpoint';
@@ -11,19 +11,6 @@ export default function Score({ APIData, setAPIData, score }) {
   // const [isEditing, setEdit] = useState(false);
   // const [retaking, setRetaking] = useState(null);
   let navigate = useNavigate();
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const getData = () => {
-    axios.get(`https://631cbcad1b470e0e120961c6.mockapi.io/PromineoTechApi/users`)
-      .then((getData) => {
-        setAPIData(getData.data);
-      }).then(() => {
-        navigate('/scorelist');
-      })
-  }
 
 
   const onDelete = async (id) => {
@@ -56,7 +43,7 @@ export default function Score({ APIData, setAPIData, score }) {
 
 
   const handleEdit = () => {
-    navigate('/quiz-retake')
+    navigate('/quiz-retake', {score: score})
   }
 
 

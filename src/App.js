@@ -63,11 +63,12 @@ export default function App() {
             username={username}
             setUserName={setUserName}
             handleChange={handleChange}
-          />}
+            />}
           />
           <Route path='/scorelist' element={<ScoreList
             APIData={APIData}
-            setAPIData={setAPIData} />}
+            setAPIData={setAPIData}
+            />}
           />
           <Route path='/quiz-retake' element={<QuizRetake
             APIData={APIData}
@@ -78,7 +79,7 @@ export default function App() {
             setUserName={setUserName}
             score={score}
             setScore={setScore}
-          />}
+            />}
           /> 
         </Routes>
         <br />
