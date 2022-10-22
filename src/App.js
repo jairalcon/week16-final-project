@@ -4,10 +4,8 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
 import Home from "./components/Home";
 import Quiz from "./components/Quiz";
-// import LeaderBoard from "./components/Scores";
 import MusicPlayer from "./components/MusicPlayer";
 import Footer from "./components/Footer";
-// import axios from "axios";
 import ScoreList from "./components/ScoreList";
 import { usersAPI } from "./rest/Endpoint";
 import QuizRetake from "./components/QuizRetake";
@@ -51,8 +49,9 @@ export default function App() {
 
   return (
     <>
+      <NavBar />
       <div className="wrapper container">
-        <NavBar />
+        
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/quiz' element={<Quiz
@@ -73,12 +72,13 @@ export default function App() {
           <Route path='/quiz-retake' element={<QuizRetake
             APIData={APIData}
             setAPIData={setAPIData}
-            onSubmit={onSubmit} />}
+            onSubmit={onSubmit} 
             handleChange={handleChange}
             username={username}
             setUserName={setUserName}
             score={score}
             setScore={setScore}
+          />}
           /> 
         </Routes>
         <br />
