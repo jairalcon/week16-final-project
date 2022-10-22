@@ -9,7 +9,6 @@ export default function QuizRetake({ APIData, setAPIData }) {
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0)
     // const [editScore, setEditScore] = useState(0)
-
     let navigate = useNavigate();
 
     // useEffect(() => {
@@ -56,9 +55,13 @@ export default function QuizRetake({ APIData, setAPIData }) {
 
     const submitRetakeScore = async (e) => {
         console.log('inside retake submit')
+        console.log('apiData:', APIData);
+        // console.log('id example', APIData[2].id);
+        // console.log('id example', APIData[APIData.length - 1].id);
+
         e.preventDefault();
-        await usersAPI.put(APIData.id, {score: score})
-        console.log(score);
+        await usersAPI.put(APIData[APIData.length - 1].id, {score: score})
+        console.log('score:', score);
         setAPIData(APIData.map((item) => {
             if(item.id === APIData.id) {
                 return {
@@ -68,7 +71,7 @@ export default function QuizRetake({ APIData, setAPIData }) {
             return item;
         }))
 
-        // navigate('/scorelist');
+        navigate('/scorelist');
     };
 
     // const handleEdit = async (id) => {
