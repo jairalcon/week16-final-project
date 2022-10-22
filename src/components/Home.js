@@ -31,7 +31,7 @@ export default function Home() {
                 <img className='col-sm team-logo img-fluid' src={mclaren} alt="mclaren" />
                 <img className='col-sm team-logo img-fluid' src={alfaromeo} alt="alfaromeo" />
                 <img className='col-sm team-logo img-fluid' src={haas} alt="haas" />
-                <img className='col-sm team-logo img-fluid' src={alphatauri} alt="alpha tauri" />
+                <img className='col-sm team-logo img-fluid' src={alphatauri} alt="alphatauri" />
                 <img className='col-sm team-logo img-fluid' src={astonmartin} alt="aston martin" />
                 <img className='col-sm team-logo img-fluid' src={williams} alt="williams" />
             </div>

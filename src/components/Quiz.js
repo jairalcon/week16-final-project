@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { questions } from './Questions';
 import SubmitResults from './SubmitResults';
-import axios from 'axios';
+// import axios from 'axios';
 
-export default function Quiz() {
+export default function Quiz({ 
+    APIData, setAPIData, onSubmit, score, setScore, username, setUserName, handleChange 
+}) {
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [score, setScore] = useState(0);
     const [showScore, setShowScore] = useState(false);
-    const [APIData, setAPIData] = useState([]);
+    // const [APIData, setAPIData] = useState([]);
 
 
-    useEffect(() => {
-        console.log('inside useEffect');
-        axios.get(`https://631cbcad1b470e0e120961c6.mockapi.io/PromineoTechApi/users`)
-            .then((response) => {
-                setAPIData(response.data)
-                console.log('Here is APIData', response.data)
-            })
-    }, [])
+    // useEffect(() => {
+    //     console.log('inside useEffect');
+    //     axios.get(`https://631cbcad1b470e0e120961c6.mockapi.io/PromineoTechApi/users`)
+    //         .then((response) => {
+    //             setAPIData(response.data)
+    //             console.log('Here is APIData', response.data)
+    //         })
+    // }, [])
 
     const handleClick = (isCorrect) => {
         if (isCorrect) {
@@ -42,7 +43,16 @@ export default function Quiz() {
                 <section className="showScore-section font-face-f1b">
                     Your score is {score} out of {questions.length}<br/>
                     {/* passing results to SubmitResults */}
-                    <SubmitResults score={score} setScore={setScore} APIData={APIData}/>
+                    <SubmitResults 
+                        score={score} 
+                        setScore={setScore} 
+                        APIData={APIData} 
+                        setAPIData={setAPIData}
+                        onSubmit={onSubmit}
+                        handleChange={handleChange}
+                        username={username}
+                        setUserName={setUserName}
+                    />
                 </section>
             ) : (
                 <>

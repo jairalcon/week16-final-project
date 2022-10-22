@@ -21,7 +21,7 @@ export const NavBar = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="/leaderboard">Leaderboard</Nav.Link>
+                            <Nav.Link href="/scorelist">Score List</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

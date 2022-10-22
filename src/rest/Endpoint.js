@@ -21,12 +21,14 @@ class UsersAPI {
     //Update request
     put = async (user) => {
         try {
-            const resp = await fetch(`${USERS_ENDPOINT}/${user._id}`, {
+            const resp = await fetch(`${USERS_ENDPOINT}/${user.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(user),
+                body: JSON.stringify({
+                    score: user[1]
+                })
             });
             return await resp.json();
         } catch (error) {
@@ -34,36 +36,6 @@ class UsersAPI {
                 "Oh no! There was an error with updating your user data.",
                 error
             );
-        }
-    };
-
-    //Update request
-    apiEdit = async (userId, userData) => {
-        let userIdArr = userId;
-        console.log(
-            "mainAPI apiEdit productURL:",
-            `${USERS_ENDPOINT}/${userIdArr[0].slice(5)}`
-        );
-        // console.log("mainAPI apiEdit userId:", userIdArr[0].slice(5));
-        // console.log("mainAPI apiEdit userData:", userData[0].slice(9));
-        try {
-            const resp = await fetch(
-                `${USERS_ENDPOINT}/${userIdArr[0].slice(5)}`,
-                {
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-
-                    body: JSON.stringify({
-                        user: userData[0],
-                    }),
-                }
-            );
-            await resp.json();
-            return (window.location = "/");
-        } catch (error) {
-            console.log("Oh no! There was an error with editing your login.", error);
         }
     };
 
@@ -107,6 +79,36 @@ class UsersAPI {
             return (window.location = "/");
         } catch (error) {
             console.log("Oh no! There was an error with deleting user data.", error);
+        }
+    };
+
+    //Update request
+    apiEdit = async (userId, userData) => {
+        let userIdArr = userId;
+        console.log(
+            "mainAPI apiEdit productURL:",
+            `${USERS_ENDPOINT}/${userIdArr[0].slice(5)}`
+        );
+        // console.log("mainAPI apiEdit userId:", userIdArr[0].slice(5));
+        // console.log("mainAPI apiEdit userData:", userData[0].slice(9));
+        try {
+            const resp = await fetch(
+                `${USERS_ENDPOINT}/${userIdArr[0].slice(5)}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+
+                    body: JSON.stringify({
+                        user: userData[0],
+                    }),
+                }
+            );
+            await resp.json();
+            return (window.location = "/scorelist");
+        } catch (error) {
+            console.log("Oh no! There was an error with editing your login.", error);
         }
     };
 }

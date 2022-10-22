@@ -1,30 +1,12 @@
-import React, { useState } from 'react';
-import { usersAPI } from '../rest/Endpoint';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+// import { usersAPI } from '../rest/Endpoint';
+// import { useNavigate } from 'react-router-dom';
 
-export default function SubmitResults({ score, setScore, APIData}) {
-    const [ username, setUserName ] = useState('');
+export default function SubmitResults({ APIData, onSubmit, username, handleChange}) {
     // const [ result, setResult ] = useState('');
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    const test = APIData;
-    console.log('APIData from Quiz', test);
-
-    const onSubmit = (event) => {
-        event.preventDefault();
-        console.log("onSubmit event", event);
-
-        usersAPI.post([username, score]);
-        setUserName("");
-        setScore("");
-        navigate('/leaderboard');
-    };
-
-    function handleChange(event) {
-        console.log(" handleChange name", event.target.name);
-        console.log("userName handleChange value", event.target.value);
-        setUserName(`${event.target.name}${event.target.value}`);
-    }
+    console.log('APIData from Quiz', APIData);
 
     return (
         <>
@@ -36,14 +18,15 @@ export default function SubmitResults({ score, setScore, APIData}) {
                             <label className='form-label'></label>
                             <input
                                 placeholder='Username...'
-                                type='username'
+                                value={username}
                                 className='form-control'
                                 onChange={handleChange} />
                         </div>
                         <>
                             <button 
                                 className='btn btn-success font-face-f1r' 
-                                type='submit'>Submit</button>
+                                type='submit'>Submit
+                            </button>
                         </>
                     </form>
                 </div>
