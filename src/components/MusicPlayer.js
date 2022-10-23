@@ -6,7 +6,7 @@ const MusicPlayer = () => {
     
     return (
         <>
-            <ReactAudioPlayer src={BackgroundMusic} /*autoPlay*/ controls/>
+            <ReactAudioPlayer src={BackgroundMusic} autoPlay controls/>
         </>
     )
 }

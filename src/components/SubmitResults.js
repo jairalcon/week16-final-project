@@ -3,9 +3,7 @@ import React from 'react';
 // import { useNavigate } from 'react-router-dom';
 
 export default function SubmitResults({ APIData, onSubmit, username, handleChange}) {
-    // const [ result, setResult ] = useState('');
-    // const navigate = useNavigate();
-
+    
     console.log('APIData from Quiz', APIData);
 
     return (

@@ -8,17 +8,6 @@ export default function Quiz({
 }) {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
-    // const [APIData, setAPIData] = useState([]);
-
-
-    // useEffect(() => {
-    //     console.log('inside useEffect');
-    //     axios.get(`https://631cbcad1b470e0e120961c6.mockapi.io/PromineoTechApi/users`)
-    //         .then((response) => {
-    //             setAPIData(response.data)
-    //             console.log('Here is APIData', response.data)
-    //         })
-    // }, [])
 
     const handleClick = (isCorrect) => {
         if (isCorrect) {

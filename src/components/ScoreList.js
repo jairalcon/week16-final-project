@@ -23,7 +23,6 @@ export default function ScoreList({ APIData, setAPIData }) {
               return (
                 <Score score={score}
                   key={score.id}
-                  setAPIData={setAPIData}
                   APIData={APIData}
                 />
               )
@@ -34,13 +33,3 @@ export default function ScoreList({ APIData, setAPIData }) {
     </>
   )
 }
-
-// {/* <>
-//   {APIData.map((score, index) => (
-//     <Score score={score}
-//       key={score.id}
-//       setAPIData={setAPIData}
-//       APIData={APIData}
-//     />
-//   ))}
-// </> */}

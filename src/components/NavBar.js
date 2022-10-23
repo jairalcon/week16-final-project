@@ -27,5 +27,5 @@ export const NavBar = () => {
                 </Container>
             </Navbar>
         </>
-    )
+    );
 }

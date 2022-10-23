@@ -6,12 +6,8 @@ import { useNavigate } from 'react-router-dom';
 // import { usersAPI } from '../rest/Endpoint';
 // import { Navigate, useNavigate } from 'react-router-dom';
 
-export default function Score({ APIData, setAPIData, score }) {
-  // const [APIData, setAPIData] = useState([]);
-  // const [isEditing, setEdit] = useState(false);
-  // const [retaking, setRetaking] = useState(null);
+export default function Score({ APIData, score }) {
   let navigate = useNavigate();
-
 
   const onDelete = async (id) => {
     console.log('in delete function');

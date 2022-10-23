@@ -16,13 +16,14 @@ export default function App() {
   const [username, setUserName] = useState('');
 
   let navigate = useNavigate();
-  // const [newScore, setNewScore] = useState({ username: '', score: '' });
 
   const getScores = async () => {
     const scoresFromServer = await usersAPI.get();
     setAPIData(scoresFromServer);
   }
 
+  //todo https://dev.to/will_yama/how-to-render-responses-96c
+  
   useEffect(() => {
     getScores();
   }, [])
@@ -50,8 +51,7 @@ export default function App() {
   return (
     <>
       <NavBar />
-      <div className="wrapper container">
-        
+      <div className="wrapper container">        
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/quiz' element={<Quiz
@@ -72,6 +72,7 @@ export default function App() {
           />
           <Route path='/quiz-retake' element={<QuizRetake
             APIData={APIData}
+            getScores={getScores}
             setAPIData={setAPIData}
             onSubmit={onSubmit} 
             handleChange={handleChange}

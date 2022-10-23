@@ -4,18 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { usersAPI } from '../rest/Endpoint';
 import { questions } from './Questions';
 
-export default function QuizRetake({ APIData, setAPIData }) {
+export default function QuizRetake({ APIData, setAPIData, getScores }) {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0)
-    // const [editScore, setEditScore] = useState(0)
-    let navigate = useNavigate();
 
-    // useEffect(() => {
-    //     if (user) {
-    //         setScore(user.score);
-    //     }
-    // }, [user, setScore])
+    let navigate = useNavigate();
 
     const handleClick = (isCorrect) => {
         if (isCorrect) {
@@ -31,28 +25,6 @@ export default function QuizRetake({ APIData, setAPIData }) {
         console.log('was answer correct?', isCorrect)
     };
 
-
-    // const submitRetakeScore = async (score) => {
-    //     console.log('score:', score)
-    //     try {
-    //         const resp = await fetch(`https://631cbcad1b470e0e120961c6.mockapi.io/PromineoTechApi/users/${score.id}`, {
-    //             method: "PUT",
-    //             headers: {
-    //                 "Content-Type": "application/json",
-    //             },
-    //             body: JSON.stringify(score),
-    //         });
-    //         navigate('/scorelist');
-    //         console.log('resp:', resp)
-    //         return await resp.json();
-    //     } catch (err) {
-    //         console.log(
-    //             "Oh no! There was an error with updating your review.",
-    //             err
-    //         );
-    //     }
-    // };
-
     const submitRetakeScore = async (e) => {
         console.log('inside retake submit')
         console.log('apiData:', APIData);
@@ -60,30 +32,13 @@ export default function QuizRetake({ APIData, setAPIData }) {
         // console.log('id example', APIData[APIData.length - 1].id);
 
         e.preventDefault();
-        await usersAPI.put(APIData[APIData.length - 1].id, {score: score})
+        await usersAPI.put(APIData[APIData.length - 1].id, { score: score })
         console.log('score:', score);
-        setAPIData(APIData.map((item) => {
-            if(item.id === APIData.id) {
-                return {
-                    ...item, APIData: score
-                }
-            }
-            return item;
-        }))
+
+        getScores();
 
         navigate('/scorelist');
     };
-
-    // const handleEdit = async (id) => {
-    //     const updatedScore = { id, score: score };
-    //     try {
-    //         const response = await usersAPI.put(updatedScore);
-    //         setAPIData(user.map(users => users.id === id ? { ...response.data } : users));
-    //         navigate('/scorelist');
-    //     } catch (err) {
-    //         console.log(`Error: ${err.message}`)
-    //     }
-    // } 
 
 
     // create conditional function to determine if user's quiz exists
@@ -127,3 +82,14 @@ export default function QuizRetake({ APIData, setAPIData }) {
         </div>
     );
 }
+
+// const handleEdit = async (id) => {
+//     const updatedScore = { id, score: score };
+//     try {
+//         const response = await usersAPI.put(updatedScore);
+//         setAPIData(user.map(users => users.id === id ? { ...response.data } : users));
+//         navigate('/scorelist');
+//     } catch (err) {
+//         console.log(`Error: ${err.message}`)
+//     }
+// } 
