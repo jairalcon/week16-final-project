@@ -1,6 +1,5 @@
 import React from 'react';
-// import { usersAPI } from '../rest/Endpoint';
-// import { useNavigate } from 'react-router-dom';
+
 
 export default function SubmitResults({ APIData, onSubmit, username, handleChange}) {
     

@@ -1,10 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-// import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-// import QuizRetake from './QuizRetake';
-// import { usersAPI } from '../rest/Endpoint';
-// import { Navigate, useNavigate } from 'react-router-dom';
 
 export default function Score({ APIData, score }) {
   let navigate = useNavigate();
@@ -36,7 +32,6 @@ export default function Score({ APIData, score }) {
       return false;
     }
   };
-
 
   const handleEdit = () => {
     navigate('/quiz-retake', {score: score})

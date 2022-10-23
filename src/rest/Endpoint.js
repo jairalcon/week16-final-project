@@ -55,7 +55,7 @@ class UsersAPI {
             });
             console.log("mainAPI postResponse:", response);
             await response.json();
-            // (window.location = "/reviews");
+            // (window.location = "/scorelist");
             console.log('response:', response);
             // return (window.location = "/quiz");
         } catch (error) {
@@ -64,9 +64,9 @@ class UsersAPI {
     };
 
     //Delete request
-    apiDelete = async (usernameId) => {
+    apiDelete = async (id) => {
         try {
-            const resp = await fetch(`${USERS_ENDPOINT}/${usernameId}`, {
+            const resp = await fetch(`${USERS_ENDPOINT}/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
