@@ -18,7 +18,7 @@ export default function Home() {
   const onSubmit = (event) => {
     event.preventDefault()
     // console.log("onSubmit event", event);
-    navigate('week16-final-project/quiz')
+    navigate('/quiz')
   }
 
   return (

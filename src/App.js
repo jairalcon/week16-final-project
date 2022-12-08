@@ -50,9 +50,9 @@ export default function App() {
       <NavBar />
       <div className="wrapper container">
         <Routes>
-          <Route path="week16-final-project/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route
-            path="week16-final-project/quiz"
+            path="/quiz"
             element={
               <Quiz
                 score={score}
@@ -67,11 +67,11 @@ export default function App() {
             }
           />
           <Route
-            path="week16-final-project/scorelist"
+            path="/scorelist"
             element={<ScoreList APIData={APIData} setAPIData={setAPIData} />}
           />
           <Route
-            path="week16-final-project/quiz-retake"
+            path="/quiz-retake"
             element={
               <QuizRetake
                 APIData={APIData}

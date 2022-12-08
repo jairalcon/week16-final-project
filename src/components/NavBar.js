@@ -12,7 +12,7 @@ export const NavBar = () => {
         expand="sm"
       >
         <Container>
-          <Navbar.Brand href="week16-final-project/">
+          <Navbar.Brand href="/">
             <img
               alt="formula 1"
               src={F1Logo2}
@@ -24,10 +24,8 @@ export const NavBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="week16-final-project/">Home</Nav.Link>
-              <Nav.Link href="week16-final-project/scorelist">
-                Score List
-              </Nav.Link>
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/scorelist">Score List</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
