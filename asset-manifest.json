@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/week16-final-project/static/css/main.81ca3fab.css",
+    "main.js": "/week16-final-project/static/js/main.5ec389cd.js",
+    "static/js/496.cf3390a5.chunk.js": "/week16-final-project/static/js/496.cf3390a5.chunk.js",
+    "static/media/F1.mp3": "/week16-final-project/static/media/F1.31e32167a148cdc6e01f.mp3",
+    "static/media/haas.jpg": "/week16-final-project/static/media/haas.d9d03326960d3e20454b.jpg",
+    "static/media/redbull.jpg": "/week16-final-project/static/media/redbull.1f7b7f5e35606ec32936.jpg",
+    "static/media/mercedes.jpg": "/week16-final-project/static/media/mercedes.a319e9ee6c8146675078.jpg",
+    "static/media/astonmartin.jpg": "/week16-final-project/static/media/astonmartin.eb0631caa1bd5fb6afa3.jpg",
+    "static/media/alphatauri.jpg": "/week16-final-project/static/media/alphatauri.d6d3562aa710dd44df92.jpg",
+    "static/media/alpine.jpg": "/week16-final-project/static/media/alpine.3f658414c86694772648.jpg",
+    "static/media/williams.jpg": "/week16-final-project/static/media/williams.00077c243226444ea783.jpg",
+    "static/media/mclaren.jpg": "/week16-final-project/static/media/mclaren.3b18c2ddcf7a5dedea1d.jpg",
+    "static/media/Formula1-Wide.otf": "/week16-final-project/static/media/Formula1-Wide.a4c5c2d90298960f0e82.otf",
+    "static/media/Formula1-Bold.otf": "/week16-final-project/static/media/Formula1-Bold.94489425e19896648254.otf",
+    "static/media/Formula1-Regular.otf": "/week16-final-project/static/media/Formula1-Regular.a5336cac9ba0fc563d1e.otf",
+    "static/media/ferrari.jpg": "/week16-final-project/static/media/ferrari.1ee12daeda44754e035f.jpg",
+    "static/media/alfaromeo.png": "/week16-final-project/static/media/alfaromeo.306b8ba5453317252b81.png",
+    "static/media/f1_logo.svg": "/week16-final-project/static/media/f1_logo.8d79743b12d6904d259d43ce08915b48.svg",
+    "index.html": "/week16-final-project/index.html",
+    "main.81ca3fab.css.map": "/week16-final-project/static/css/main.81ca3fab.css.map",
+    "main.5ec389cd.js.map": "/week16-final-project/static/js/main.5ec389cd.js.map",
+    "496.cf3390a5.chunk.js.map": "/week16-final-project/static/js/496.cf3390a5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.81ca3fab.css",
+    "static/js/main.5ec389cd.js"
+  ]
+}
