@@ -22,8 +22,8 @@ export default function Home() {
   }
 
   return (
-    <>
-      <div className="container-fluid row mt-3 align-center g-3 justify-content-center">
+    <div className="container-fluid align-items-center px-4 py-5 my-5">
+      <div className="row mt-3 align-center g-3 justify-content-center">
         <img
           className="col-sm team-logo img-fluid"
           src={redbull}
@@ -81,6 +81,6 @@ export default function Home() {
           </form>
         </div>
       </div>
-    </>
+    </div>
   )
 }
